@@ -1,0 +1,17 @@
+/* Esta única linha na v4 substitui as 3 antigas diretivas @tailwind. */
+@import "tailwindcss";
+
+@layer components {
+  .social-icon {
+    @apply border border-gray-300 rounded-full h-10 w-10 inline-flex items-center justify-center mx-1 text-gray-700 transition-transform hover:scale-110;
+  }
+  .form-input {
+    @apply bg-gray-100 border-none p-3 my-2 w-full rounded-lg outline-none;
+  }
+  .form-button {
+    @apply bg-cyan-700 text-white text-sm font-bold uppercase py-3 px-12 rounded-lg transition-transform hover:scale-105 active:scale-95;
+  }
+  .form-button-hidden {
+    @apply bg-transparent border-2 border-white text-sm font-bold uppercase py-3 px-12 rounded-lg transition-transform hover:scale-105 active:scale-95;
+  }
+}
