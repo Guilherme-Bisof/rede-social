@@ -62,8 +62,11 @@ export default function LoginPage() {
       const result = await response.json();
 
       if (response.ok) {
-        // 3. USAR O ROUTER PARA REDIRECIONAR
-        // alert(result.message); // Trocamos o alerta pelo redirecionamento
+        // Salva o token no armazenamento local do navegador
+        localStorage.setItem('token', result.token);
+
+        localStorage.setItem('user', JSON.stringify(result.user));
+
         router.push('/inicio'); 
       } else {
         alert(`Erro: ${result.error}`);

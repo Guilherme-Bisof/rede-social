@@ -14,9 +14,18 @@ export default function FormularioPost() {
         }
 
         try {
+            // 1. Pega o token que guardamos no login
+            const token = localStorage.getItem('token');
+
+            if (!token) {
+                alert('Você não está autenticado. Por favor, faça login novamente.');
+                return;
+            }
+            
+            // 2. Adiciona o token ao cabeçalho da requisição
             const response = await fetch('http://localhost:3001/api/publicacoes', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
                 body: JSON.stringify({ conteudo: conteudo }),
             });
 
